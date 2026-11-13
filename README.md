@@ -29,14 +29,35 @@ Git is needed for branch information and session change snapshots. Agent CLIs,
 llama-server and model files are installed separately; the app can download
 GGUF models from Hugging Face.
 
+## macOS
+
+`AiSquared-Controller-<version>-macos-arm64.zip` needs Apple Silicon and
+macOS 26.0 or newer. Download it and its `.sha256` file into the same folder,
+then run:
+
+```sh
+shasum -a 256 -c AiSquared-Controller-<version>-macos-arm64.zip.sha256
+unzip AiSquared-Controller-<version>-macos-arm64.zip
+cd AiSquared-Controller-<version>-macos-arm64
+open bin/AISquared.app
+```
+
+Or extract it to a writable folder and double-click
+**Launch AiSquared.command**. Keep the whole folder together; don't move the
+app alone into Applications. The package is ad-hoc signed and not notarized,
+so macOS may ask you to allow it in **System Settings > Privacy & Security**
+on first launch.
+
 ## Updating
 
-Choose **File > Stop agents and exit**, then replace the executable, the
-bundled DLLs and the assets in `bin/`. Keep `data/`, `models/`, `engine/`,
-`project-types/`, `agentpersona/`, `userpersona/` and any `bin/location.txt`.
+Choose **File > Stop agents and exit**. On Windows, replace the executable,
+the bundled DLLs and the assets in `bin/`. On macOS, replace
+`bin/AISquared.app`, the `bin/AISquared` launcher and `bin/assets/`. Keep
+`data/`, `models/`, `engine/`, `project-types/`, `agentpersona/`,
+`userpersona/` and any `bin/location.txt`.
 
-Releases before 0.2.12, and the Linux and macOS packages, are published on
-Intrepid's GitLab.
+Releases before 0.2.12, and the Linux package, are published on Intrepid's
+GitLab.
 
 ## License
 
